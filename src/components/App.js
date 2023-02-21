@@ -1,8 +1,9 @@
 import React from 'react';
 import '../App.css';
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import {Link, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './Login';
 import Friendslist from './Friendslist'
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   return (
@@ -16,7 +17,11 @@ function App() {
       <Routes>
         <Route element={<Login />} path='/' />
         <Route element={<Login />} path='/login' />
-        <Route element={<Friendslist/>} path='/friendslist' />
+        <Route 
+          element={<PrivateRoute
+            component={Friendslist} />}
+          path='/friendslist'
+        />
       </Routes>
     </div>
   );

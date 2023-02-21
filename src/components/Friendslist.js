@@ -8,7 +8,8 @@ const Friendslist = props => {
         axiosWithAuth()
             .get('/friends')
             .then(res => setFriends(res.data))
-            .catch(err => console.log(err.error))
+            .catch(err => console.log(err.message)
+            )
     }, [])
     return (
         <div className='friendslist'>
